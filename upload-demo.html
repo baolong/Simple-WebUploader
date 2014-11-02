@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simple-WebUploader Demo</title>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <style type="text/css">
+        	#pick {width:100%;height:40px;background:yellow;text-align:center;line-height:40px;}
+        	#uploadBtn {width:100%;height:40px;background:green;text-align:center;line-height:40px;}
+        	#progress {width:100%;height:40px;border: solid 1px #888;}
+        </style>
+    </head>
+    <body>
+        <div id="pick">选择文件</div>
+        <div id="uploadBtn">上传</div>
+        <div id="progress"></div>
+        <div id="thumb"></div>
+        <script src="src/Simple-WebUploader.js" language="JavaScript"></script>
+        <script type="text/javascript">
+        var token = '';
+        var uploader = new Uploader({
+            url: 'http://up.qiniu.com',
+            pick: 'pick',
+            thumb: 'thumb',
+            uploadBtn: 'uploadBtn',
+            thumbClassName: 'img',
+            onlyOneFile: true,
+            accept: 'image/*',
+            progressBar: 'progress',
+            datas: {
+                'token': token
+            },
+            callback: function(status, responseText) {
+                //alert(status + " - " + responseText);
+            }
+        });
+        </script>
+    </body>
+</html>
